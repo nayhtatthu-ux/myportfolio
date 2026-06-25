@@ -124,6 +124,12 @@ body {
     box-shadow: var(--shadow);
 }
 
+#about p {
+    line-height: 1.85;
+    color: var(--text-main);
+    margin-bottom: 1.1rem;
+}
+
 .profile-details li {
     margin-bottom: 10px;
     color: var(--text-main);
@@ -196,6 +202,28 @@ body {
     color: var(--text-main);
 }
 
+/* Skills */
+.skill-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 22px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    transition: 0.28s ease;
+    height: 100%;
+}
+
+.skill-box:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(56, 189, 248, 0.22);
+}
+
+.skill-box h5 {
+    color: #f8fafc;
+    margin-bottom: 0.3rem;
+}
+
 .skill-tags {
     display: flex;
     flex-wrap: wrap;
@@ -210,30 +238,15 @@ body {
     border-radius: 999px;
     font-size: 0.9rem;
     border: 1px solid rgba(56, 189, 248, 0.16);
+    transition: 0.25s ease;
 }
 
-/* Skills */
-.skill-box {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 22px;
-    border-radius: 16px;
-    box-shadow: var(--shadow);
-    transition: 0.28s ease;
+.skill-tags span:hover {
+    background: rgba(56, 189, 248, 0.12);
+    border-color: rgba(56, 189, 248, 0.3);
 }
 
-.skill-box:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-hover);
-    border-color: rgba(56, 189, 248, 0.22);
-}
-
-.skill-box h5 {
-    color: #f8fafc;
-    margin-bottom: 0.3rem;
-}
-
-/* Keep old progress styles in case still used somewhere */
+/* Progress */
 .progress {
     background-color: #334155;
     height: 14px;
@@ -276,7 +289,10 @@ body {
     border-color: #e2e8f0;
 }
 
-/* Project cards */
+/* =========================
+   PROJECTS
+   Only hovered project opens
+========================= */
 .project-expand-card {
     background: var(--card);
     border: 1px solid var(--border);
@@ -284,6 +300,7 @@ body {
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: 0.3s ease;
+    height: 100%;
 }
 
 .project-expand-card:hover {
@@ -292,12 +309,15 @@ body {
     border-color: rgba(56, 189, 248, 0.22);
 }
 
+.project-card-top {
+    position: relative;
+}
+
 .project-image-container {
     position: relative;
     height: 320px;
     overflow: hidden;
-    background:
-        linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(17, 24, 39, 0.96));
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(17, 24, 39, 0.96));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -308,11 +328,11 @@ body {
     height: 100%;
     object-fit: contain;
     padding: 14px;
-    transition: transform 0.4s ease, opacity 0.3s ease;
+    transition: transform 0.4s ease;
 }
 
 .project-expand-card:hover .project-image-full {
-    transform: scale(0.92);
+    transform: scale(0.94);
 }
 
 .project-title-overlay {
@@ -323,8 +343,8 @@ body {
     justify-content: center;
     background: linear-gradient(
         180deg,
-        rgba(2, 6, 23, 0.20),
-        rgba(2, 6, 23, 0.60)
+        rgba(2, 6, 23, 0.18),
+        rgba(2, 6, 23, 0.62)
     );
     opacity: 0;
     transition: 0.3s ease;
@@ -347,12 +367,12 @@ body {
     max-height: 0;
     overflow: hidden;
     padding: 0 20px;
-    transition: max-height 0.4s ease, padding 0.3s ease;
+    transition: max-height 0.35s ease, padding 0.35s ease;
 }
 
 .project-expand-card:hover .project-card-details {
-    max-height: 320px;
-    padding: 20px 20px 22px;
+    max-height: 340px;
+    padding: 20px;
 }
 
 .project-card-details h4 {
@@ -374,6 +394,9 @@ body {
     overflow: hidden;
     transition: 0.3s ease;
     box-shadow: var(--shadow);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .experience-card:hover {
@@ -383,31 +406,61 @@ body {
 }
 
 .experience-top {
-    padding: 22px;
+    padding: 24px 24px 18px;
     text-align: center;
 }
 
 .experience-top h4 {
     color: #f8fafc;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.experience-top p {
+    margin-bottom: 6px;
+    color: var(--text-main);
+}
+
+.text-light-muted {
+    color: var(--text-soft) !important;
 }
 
 .experience-details {
-    max-height: 0;
-    overflow: hidden;
-    padding: 0 20px;
-    transition: max-height 0.4s ease, padding 0.3s ease;
+    flex: 1;
+    padding: 0 22px 22px;
 }
 
-.experience-card:hover .experience-details {
-    max-height: 420px;
-    padding: 0 20px 20px;
+.experience-details .edu-list {
+    margin-top: 0.4rem;
 }
 
 .experience-details li {
     color: var(--text-main);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     text-align: left;
-    line-height: 1.65;
+    line-height: 1.7;
+}
+
+/* Certificate cards */
+.certificate-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 22px;
+    box-shadow: var(--shadow);
+    transition: 0.28s ease;
+    height: 100%;
+}
+
+.certificate-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: rgba(56, 189, 248, 0.22);
+}
+
+.certificate-icon {
+    font-size: 2rem;
+    color: var(--accent);
 }
 
 /* Contact */
@@ -457,6 +510,16 @@ footer {
 }
 
 /* Responsive */
+@media (max-width: 992px) {
+    .project-image-container {
+        height: 280px;
+    }
+
+    .project-expand-card:hover .project-card-details {
+        max-height: 420px;
+    }
+}
+
 @media (max-width: 768px) {
     .profile-img {
         width: 240px;
@@ -473,6 +536,21 @@ footer {
     }
 
     .project-image-container {
-        height: 260px;
+        height: 240px;
+    }
+
+    .experience-top {
+        padding: 22px 20px 14px;
+    }
+
+    .experience-details {
+        padding: 0 18px 20px;
+    }
+
+    .skill-box,
+    .certificate-card,
+    .experience-card,
+    .project-expand-card {
+        border-radius: 14px;
     }
 }
